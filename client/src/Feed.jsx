@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useState } from "react";
 import Comp from "./components/Comp";
 
 export default function Feed() {
@@ -10,10 +9,6 @@ export default function Feed() {
   // fetch logic for retrieving Comps (API.GET [ALL])
   const compsList = [];
 
-  // search function
-  const handleSearch = () => {
-    // fetch logic -> startsWith on db side
-  };
   const handleSearch = () => {
     // fetch logic -> startsWith on db side
   };
@@ -26,18 +21,8 @@ export default function Feed() {
     setComps(sortedComps);
     setSortOrder(order);
   };
-  const handleSort = (order) => {
-    const sortedComps = [...comps].sort(() => {
-      // logic for sorting comps based on
-    });
-    setComps(sortedComps);
-    setSortOrder(order);
-  };
 
   // filter function
-  const handleFilter = (event) => {
-    setFilter(event.target.value);
-  };
   const handleFilter = (event) => {
     setFilter(event.target.value);
   };
