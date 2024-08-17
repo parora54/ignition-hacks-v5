@@ -11,7 +11,7 @@ import Drills from "./Drills.jsx";
 import Achievements from "./Achievements.jsx";
 import { AuthProvider } from "./AuthProvider.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
-import { Profile } from "./Profile.jsx";
+import Profile from "./Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     element: <Achievements />,
   },
   {
-    path: "/achievements",
+    path: "/profile",
     element: <PrivateRoute element={<Profile />} />,
   },
 ]);

@@ -18,7 +18,7 @@ export default function Login() {
     const success = await login(email, password);
 
     if (success) {
-      navigate("/"); //FIXME: change to navigate to dashboard/profile page
+      navigate("/profile"); //FIXME: change to navigate to dashboard/profile page
     } else {
       setError("Login failed. Please try again.");
     }

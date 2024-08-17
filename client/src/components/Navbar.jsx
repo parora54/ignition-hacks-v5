@@ -15,7 +15,7 @@ export default function Navbar() {
         Home
       </a>
       {user && (
-        <a href="/" className="nav-link">
+        <a href="/profile" className="nav-link">
           Profile
         </a>
       )}
