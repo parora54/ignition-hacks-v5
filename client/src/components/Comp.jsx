@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 
-export default function Comp({ title, desc, difficulty, date }) {
+export default function Comp({ profileId, title, desc, difficulty, date }) {
   //some fetch logic or pass in props -> returns Object {title, desc, difficulty, date}
 
   //favourite a comp logic (API.POST)
+  // use profileId, if given, to post a favourite to db
 
   return (
     <>
