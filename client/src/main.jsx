@@ -11,31 +11,38 @@ import Achievements from "./Achievements.jsx";
 import { AuthProvider } from "./AuthProvider.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Profile from "./Profile.jsx";
+import ErrorPage from "./ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/login",
     element: <Login />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/feed",
     element: <Feed />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/drills",
     element: <Drills />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/achievements",
     element: <Achievements />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/profile",
     element: <PrivateRoute element={<Profile />} />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

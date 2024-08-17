@@ -6,8 +6,9 @@ export default function Profile() {
   return (
     <>
       <div>
-        This is <b>{user.user}</b>&apos;s profile
+        This is <b>{user.name}</b>&apos;s profile
       </div>
+      <div>My email is {user.email}</div>
     </>
   );
 }

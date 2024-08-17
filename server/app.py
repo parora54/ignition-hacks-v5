@@ -3,18 +3,11 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user
 from db import db
 from models import User
-<<<<<<< HEAD
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 app.config.from_object('config.Config')
-=======
-from config import Config
-
-app = Flask(__name__)
-app.config.from_object(Config)
->>>>>>> Devan
 
 db.init_app(app)  # Initialize db with the app
 # with app.app_context():
@@ -56,7 +49,7 @@ def login():
     # Check if the user exists and the password is correct
     if user and bcrypt.check_password_hash(user.password, password):
         login_user(user)
-        return jsonify({"message": "Login successful", "user": user.email, "name": user.full_name}), 200
+        return jsonify({"message": "Login successful", "email": user.email, "name": user.full_name}), 200
     else:
         return jsonify({"message": "Invalid email or password"}), 401
 
