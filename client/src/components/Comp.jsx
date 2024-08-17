@@ -9,9 +9,9 @@ export default function Comp({ data }) {
   return (
     <>
       <div>{data.title}</div>
-      <div>{data.desc}</div>
+      <div>{data.description}</div>
+      <div>{data.type}</div>
       <div>{data.difficulty}</div>
-      <div>{data.date}</div>
     </>
   );
 }

@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import Comp from "./components/Comp";
 
 export default function Feed() {
-  const [comps, setComps] = useState(null);
+  const [comps, setComps] = useState([]);
+  const [originalComps, setOriginalComps] = useState([]);
   const [sortOrder, setSortOrder] = useState("recent");
   const [filter, setFilter] = useState(""); // default no filter -> empty string
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     // Fetch the comps data when the component mounts
@@ -26,6 +28,7 @@ export default function Feed() {
       if (response.ok) {
         console.log("Comps data from API:", data);
         setComps(data);
+        setOriginalComps(data); // Store the original data
         return true;
       } else {
         throw new Error(data.message || "Retrieval failed.");
@@ -36,14 +39,31 @@ export default function Feed() {
     }
   };
 
-  const handleSearch = () => {
-    // fetch logic -> startsWith on db side
+  const handleSearch = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    setSearch(searchTerm);
+
+    if (searchTerm) {
+      setComps(
+        originalComps.filter((comp) =>
+          comp.title.toLowerCase().includes(searchTerm)
+        )
+      );
+    } else {
+      // If search term is empty, show the original comps
+      setComps(originalComps);
+    }
   };
 
   // sort function
   const handleSort = (order) => {
-    const sortedComps = [...comps].sort(() => {
-      // logic for sorting comps based on
+    const sortedComps = [...comps].sort((a, b) => {
+      if (order === "recent") {
+        return new Date(b.date) - new Date(a.date); // Ensure `date` is a property of `comp`
+      } else if (order === "name") {
+        return a.title.localeCompare(b.title); // Ensure `title` is a property of `comp`
+      }
+      return 0;
     });
     setComps(sortedComps);
     setSortOrder(order);
@@ -56,10 +76,20 @@ export default function Feed() {
 
   return (
     <div>
-      This is Feed Page
-      {compsList.map((comp, index) => (
-        <Comp key={index} data={comp} />
-      ))}
+      <h1>This is the Feed Page</h1>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={search}
+        onChange={handleSearch}
+      />
+      <button onClick={() => handleSort("recent")}>Sort by Recent</button>
+      <button onClick={() => handleSort("name")}>Sort Alphabetically</button>
+      <div>
+        {comps.map((comp, index) => (
+          <Comp key={index} data={comp} />
+        ))}
+      </div>
     </div>
   );
 }
