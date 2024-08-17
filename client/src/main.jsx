@@ -12,6 +12,7 @@ import { AuthProvider } from "./AuthProvider.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Profile from "./Profile.jsx";
 import ErrorPage from "./ErrorPage.jsx";
+import Register from "./Register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
     errorElement: <ErrorPage />,
   },
   {

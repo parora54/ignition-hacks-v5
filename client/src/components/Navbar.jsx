@@ -21,7 +21,7 @@ export default function Navbar() {
       )}
       {!user && (
         <a href="/login" className="nav-link">
-          Login
+          Login / Register
         </a>
       )}
       <a href="/feed" className="nav-link">

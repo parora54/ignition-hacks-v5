@@ -2,20 +2,29 @@ import { useState, useEffect } from "react";
 import Comp from "./components/Comp";
 
 export default function Feed() {
-  const [comps, setComps] = useState([]); // list after filtering from search bar
-  const [originalComps, setOriginalComps] = useState([]); // default list
-  const [filter, setFilter] = useState(""); // default no filter -> empty string
+  const [comps, setComps] = useState([]);
+  const [originalComps, setOriginalComps] = useState([]);
+  const [sortOrder, setSortOrder] = useState("recent");
   const [search, setSearch] = useState("");
+  const [difficulty, setDifficulty] = useState(new Set());
+  const [compType, setCompType] = useState(new Set());
 
   useEffect(() => {
-    // Fetch the comps data when the component mounts
+    // Fetch the comps data when the component mounts or filters change
     compsList();
-  }, []);
+  }, [difficulty, compType]);
 
-  // fetch logic for retrieving Comps (API.GET [ALL])
+  // Fetch logic for retrieving Comps (API.GET [ALL])
   const compsList = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/competitions", {
+      const query = new URLSearchParams();
+      difficulty.forEach((d) => query.append("difficulty", d));
+      compType.forEach((t) => query.append("type", t));
+
+      const url = `http://127.0.0.1:5000/api/competitions?${query.toString()}`;
+      console.log("Fetching data from:", url);
+
+      const response = await fetch(url, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -49,25 +58,50 @@ export default function Feed() {
         )
       );
     } else {
-      // If search term is empty, show the original comps
       setComps(originalComps);
     }
   };
 
-  // sort function
+  // Sort function
   const handleSort = (order) => {
     const sortedComps = [...comps].sort((a, b) => {
-      if (order === "name") {
-        return a.title.localeCompare(b.title); // Ensure `title` is a property of `comp`
+      if (order === "recent") {
+        return new Date(b.time) - new Date(a.time);
+      } else if (order === "name") {
+        return a.title.localeCompare(b.title);
       }
       return 0;
     });
     setComps(sortedComps);
+    setSortOrder(order);
   };
 
-  // filter function
-  const handleFilter = (event) => {
-    setFilter(event.target.value);
+  // Handle difficulty filter
+  const handleDifficultyChange = (event) => {
+    const value = event.target.value;
+    setDifficulty((prev) => {
+      const updated = new Set(prev);
+      if (updated.has(value)) {
+        updated.delete(value);
+      } else {
+        updated.add(value);
+      }
+      return updated;
+    });
+  };
+
+  // Handle competition type filter
+  const handleTypeChange = (event) => {
+    const value = event.target.value;
+    setCompType((prev) => {
+      const updated = new Set(prev);
+      if (updated.has(value)) {
+        updated.delete(value);
+      } else {
+        updated.add(value);
+      }
+      return updated;
+    });
   };
 
   return (
@@ -79,12 +113,68 @@ export default function Feed() {
         value={search}
         onChange={handleSearch}
       />
+
+      <div>
+        <h2>Filter by Difficulty</h2>
+        <label>
+          <input
+            type="checkbox"
+            value="Beginner"
+            checked={difficulty.has("Beginner")}
+            onChange={handleDifficultyChange}
+          />
+          Beginner
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            value="Intermediate"
+            checked={difficulty.has("Intermediate")}
+            onChange={handleDifficultyChange}
+          />
+          Intermediate
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            value="Advanced"
+            checked={difficulty.has("Advanced")}
+            onChange={handleDifficultyChange}
+          />
+          Advanced
+        </label>
+      </div>
+
+      <div>
+        <h2>Filter by Competition Type</h2>
+        <label>
+          <input
+            type="checkbox"
+            value="Hackathon"
+            checked={compType.has("Hackathon")}
+            onChange={handleTypeChange}
+          />
+          Hackathon
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            value="Case Competition"
+            checked={compType.has("Case Competition")}
+            onChange={handleTypeChange}
+          />
+          Case Competition
+        </label>
+      </div>
+
       <button onClick={() => handleSort("name")}>Sort Alphabetically</button>
+
       <div>
         {comps.map((comp, index) => (
           <>
+            <br />
             <Comp key={index} data={comp} />
-            <br></br>
+            <br />
           </>
         ))}
       </div>
