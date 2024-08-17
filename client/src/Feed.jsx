@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import Comp from "./components/Comp";
 
 export default function Feed() {
-  const [comps, setComps] = useState([]);
-  const [originalComps, setOriginalComps] = useState([]);
-  const [sortOrder, setSortOrder] = useState("recent");
+  const [comps, setComps] = useState([]); // list after filtering from search bar
+  const [originalComps, setOriginalComps] = useState([]); // default list
   const [filter, setFilter] = useState(""); // default no filter -> empty string
   const [search, setSearch] = useState("");
 
@@ -58,15 +57,12 @@ export default function Feed() {
   // sort function
   const handleSort = (order) => {
     const sortedComps = [...comps].sort((a, b) => {
-      if (order === "recent") {
-        return new Date(b.date) - new Date(a.date); // Ensure `date` is a property of `comp`
-      } else if (order === "name") {
+      if (order === "name") {
         return a.title.localeCompare(b.title); // Ensure `title` is a property of `comp`
       }
       return 0;
     });
     setComps(sortedComps);
-    setSortOrder(order);
   };
 
   // filter function
@@ -83,7 +79,6 @@ export default function Feed() {
         value={search}
         onChange={handleSearch}
       />
-      <button onClick={() => handleSort("recent")}>Sort by Recent</button>
       <button onClick={() => handleSort("name")}>Sort Alphabetically</button>
       <div>
         {comps.map((comp, index) => (
