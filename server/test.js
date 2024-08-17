@@ -51,8 +51,9 @@ fetch(`http://127.0.0.1:5000/api/competitions/${competitionId}`)
     console.log('Competition Description:', data.description);
     console.log('Competition Type:', data.type);
     console.log('Competition Difficulty:', data.difficulty);
-    console.log('Competition Timing:', data.timing);
-    console.log('Competition Participant Constraints:', data.participant_constraints);
+    console.log('Competition Time', data.time);
+    console.log('Competition Education Level:', data.education);
+    console.log('Theme:', data.theme);
   })
   .catch(error => {
     console.error('Error fetching competition:', error);

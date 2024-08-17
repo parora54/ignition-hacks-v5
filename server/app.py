@@ -24,19 +24,6 @@ def load_user(user_id):
 def home():
     return "test"
 
-@app.route('/api/user/<int:user_id>', methods=['GET'])
-def get_user(user_id):
-    user = User.query.get(user_id)
-    if user:
-        return jsonify({
-            'full_name': user.full_name,
-            'email': user.email,
-            'password': user.password  # For testing purposes only; do not expose in production
-        }), 200
-    else:
-        return jsonify({"message": "User not found"}), 404
-
-
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()  # Get JSON data from the request body
@@ -81,19 +68,22 @@ def register():
 
 @app.route('/api/competitions', methods=['GET'])
 def get_competitions():
-    difficulty = request.args.get('difficulty')
-    comp_type = request.args.get('type')
+    difficulties = request.args.getlist('difficulty')
+    comp_types = request.args.getlist('type')
+    comp_educations = request.args.getlist('education')
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
 
     # base query
     query = Competition.query
 
-    # applyy filters
-    if difficulty:
-        query = query.filter(Competition.difficulty == difficulty)
-    if comp_type:
-        query = query.filter(Competition.type == comp_type)
+    # Apply filters
+    if difficulties:
+        query = query.filter(Competition.difficulty.in_(difficulties))
+    if comp_types:
+        query = query.filter(Competition.type.in_(comp_types))
+    if comp_educations:
+        query = query.filter(Competition.education.in_(comp_educations))
     if start_date and end_date:
         query = query.filter(Competition.time >= start_date).filter(Competition.time <= end_date)
 
@@ -107,11 +97,13 @@ def get_competitions():
             "type": comp.type,
             "difficulty": comp.difficulty,
             "time": comp.time,
-            "constraints": comp.constraints,
+            "education": comp.education,
+            "theme": comp.theme
         } for comp in competitions
     ]
 
     return jsonify(competitions_list), 200
+
 
 
 
@@ -126,7 +118,8 @@ def get_competition(id):
         "type": competition.type,
         "difficulty": competition.difficulty,
         "time": competition.time,
-        "constraints": competition.constraints
+        "education": competition.education,
+        "theme": competition.theme
     }), 200
 
 
