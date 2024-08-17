@@ -9,7 +9,6 @@ export default function Feed() {
   // fetch logic for retrieving Comps (API.GET [ALL])
   const compsList = [];
 
-  // search function
   const handleSearch = () => {
     // fetch logic -> startsWith on db side
   };
