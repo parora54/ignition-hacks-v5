@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const history = useHistory(); // use history for redirection
+  const navigate = useNavigate(); // use history for redirection
 
   // Logic to handle login
   const handleLogin = async () => {
@@ -29,7 +29,7 @@ export default function Login() {
         // store tokens or other user information in contextAPI
 
         // Redirect to home page
-        history.push("/home");
+        navigate("/");
       } else {
         setError(data.message || "Login failed. Please try again.");
       }

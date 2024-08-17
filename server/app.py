@@ -3,8 +3,10 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user
 from db import db
 from models import User
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config.from_object('config.Config')
 
 db.init_app(app)  # Initialize db with the app
