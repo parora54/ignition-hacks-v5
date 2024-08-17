@@ -87,7 +87,10 @@ export default function Feed() {
       <button onClick={() => handleSort("name")}>Sort Alphabetically</button>
       <div>
         {comps.map((comp, index) => (
-          <Comp key={index} data={comp} />
+          <>
+            <Comp key={index} data={comp} />
+            <br></br>
+          </>
         ))}
       </div>
     </div>
