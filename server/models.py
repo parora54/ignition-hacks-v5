@@ -17,8 +17,9 @@ class Competition(db.Model):
     description = db.Column(db.Text, nullable=False)
     type = db.Column(db.String(50), nullable=False)  # Hackathon or Case Comp
     difficulty = db.Column(db.String(50), nullable=False)  # Difficulty
-    time = db.Column(db.String(100), nullable=False)  # Time
-    constraints = db.Column(db.String(200), nullable=True)  # Rules ig?
+    time = db.Column(db.String(10), nullable=False)  # Time
+    education = db.Column(db.String(200), nullable=False)  # Comp education level
+    theme = db.Column(db.String(300), nullable=True)  # Comp education level
 
     def __repr__(self):
         return f"<Competition {self.title} ({self.type})>"
