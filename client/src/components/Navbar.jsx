@@ -19,9 +19,11 @@ export default function Navbar() {
           Profile
         </a>
       )}
-      <a href="/login" className="nav-link">
-        Login
-      </a>
+      {!user && (
+        <a href="/login" className="nav-link">
+          Login
+        </a>
+      )}
       <a href="/feed" className="nav-link">
         Feed
       </a>

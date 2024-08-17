@@ -29,6 +29,7 @@ export default function Feed() {
 
   return (
     <div>
+      This is Feed Page
       {compsList.map((index) => {
         return <Comp key={index} />;
       })}

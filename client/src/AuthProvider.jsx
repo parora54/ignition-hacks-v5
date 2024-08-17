@@ -8,6 +8,7 @@ const AuthContext = createContext();
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     // Load user from localStorage when the app initializes or refreshes
@@ -15,6 +16,7 @@ export const AuthProvider = ({ children }) => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+    setIsLoading(false); // Set loading to false once done
   }, []);
 
   // Function to handle login
@@ -31,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
+        console.log("User data from API:", data);
         setUser(data);
         localStorage.setItem("user", JSON.stringify(data));
         return true;
@@ -51,7 +53,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
