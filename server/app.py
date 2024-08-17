@@ -2,8 +2,13 @@ from flask import Flask, request, jsonify
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user
 from db import db
+<<<<<<< HEAD
 from models import *
 from flask_cors import CORS
+=======
+from flask_cors import CORS
+from models import *
+>>>>>>> Devan
 
 app = Flask(__name__)
 CORS(app)
@@ -78,21 +83,39 @@ def register():
 
 
 @app.route('/api/competitions', methods=['GET'])
-# Fetch all competitions
 def get_competitions():
-    competitions = Competition.query.all()
-    competitions_list = []
-    for comp in competitions:
-        competitions_list.append({
+    difficulty = request.args.get('difficulty')
+    comp_type = request.args.get('type')
+    start_date = request.args.get('start_date')
+    end_date = request.args.get('end_date')
+
+    # base query
+    query = Competition.query
+
+    # applyy filters
+    if difficulty:
+        query = query.filter(Competition.difficulty == difficulty)
+    if comp_type:
+        query = query.filter(Competition.type == comp_type)
+    if start_date and end_date:
+        query = query.filter(Competition.time >= start_date).filter(Competition.time <= end_date)
+
+    competitions = query.all()
+
+    competitions_list = [
+        {
             "id": comp.id,
             "title": comp.title,
             "description": comp.description,
             "type": comp.type,
             "difficulty": comp.difficulty,
             "time": comp.time,
-            "constraints": comp.constraints
-        })
+            "constraints": comp.constraints,
+        } for comp in competitions
+    ]
+
     return jsonify(competitions_list), 200
+
 
 
 @app.route('/api/competitions/<int:id>', methods=['GET'])
