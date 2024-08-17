@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -7,38 +8,22 @@ export default function Login() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // use history for redirection
+  const { login } = useAuth();
 
   // Logic to handle login
   const handleLogin = async () => {
     setLoading(true);
     setError(null);
 
-    try {
-      const response = await fetch("http://127.0.0.1:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+    const success = await login(email, password);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log("Login successful:", data);
-        // store tokens or other user information in contextAPI
-
-        // Redirect to home page
-        navigate("/");
-      } else {
-        setError(data.message || "Login failed. Please try again.");
-      }
-    } catch (error) {
-      console.error("An error occurred:", error);
-      setError("An unexpected error occurred. Please try again.");
-    } finally {
-      setLoading(false);
+    if (success) {
+      navigate("/"); //FIXME: change to navigate to dashboard/profile page
+    } else {
+      setError("Login failed. Please try again.");
     }
+
+    setLoading(false);
   };
 
   return (

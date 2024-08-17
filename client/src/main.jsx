@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar.jsx";
 import Feed from "./Feed.jsx";
 import Drills from "./Drills.jsx";
 import Achievements from "./Achievements.jsx";
+import { AuthProvider } from "./AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Navbar />
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <Navbar />
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>
 );
