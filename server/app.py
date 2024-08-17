@@ -2,13 +2,10 @@ from flask import Flask, request, jsonify
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user
 from db import db
-<<<<<<< HEAD
 from models import *
 from flask_cors import CORS
-=======
 from flask_cors import CORS
 from models import *
->>>>>>> Devan
 
 app = Flask(__name__)
 CORS(app)
