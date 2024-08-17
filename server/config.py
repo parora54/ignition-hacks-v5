@@ -8,6 +8,9 @@ class Config:
     #SQLALCHEMY_BINDS = {
     #    'competitions': 'sqlite:///' + os.path.join(basedir, 'competitions.db')
     #}
+    SQLALCHEMY_BINDS = {
+        'competitions': 'sqlite:///' + os.path.join(basedir, 'competitions.db')
+    }
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 

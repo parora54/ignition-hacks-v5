@@ -11,3 +11,4 @@ with app.app_context():
     db.session.add(user)
     db.session.commit()
     print("done")
+    print("Auth Seeded.")

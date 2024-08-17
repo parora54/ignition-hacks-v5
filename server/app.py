@@ -3,6 +3,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user
 from db import db
 from models import User
+from models import *
 from config import Config
 
 app = Flask(__name__)
@@ -49,6 +50,7 @@ def login():
     if user and bcrypt.check_password_hash(user.password, password):
         login_user(user)
         return jsonify({"message": "Login successful", "user": user.email, "name": user.full_name}), 200
+        return jsonify({"message": "Login successful", "email": user.email, "name": user.full_name}), 200
     else:
         return jsonify({"message": "Invalid email or password"}), 401
 
@@ -76,6 +78,39 @@ def register():
     db.session.commit()
 
     return jsonify({"message": "User registered successfully", "user": new_user.email}), 201  # Created
+
+
+@app.route('/api/competitions', methods=['GET'])
+# Fetch all competitions
+def get_competitions():
+    competitions = Competition.query.all()
+    competitions_list = []
+    for comp in competitions:
+        competitions_list.append({
+            "id": comp.id,
+            "title": comp.title,
+            "description": comp.description,
+            "type": comp.type,
+            "difficulty": comp.difficulty,
+            "time": comp.time,
+            "constraints": comp.constraints
+        })
+    return jsonify(competitions_list), 200
+
+
+@app.route('/api/competitions/<int:id>', methods=['GET'])
+# Fetch a single competition by ID
+def get_competition(id):
+    competition = Competition.query.get_or_404(id)
+    return jsonify({
+        "id": competition.id,
+        "title": competition.title,
+        "description": competition.description,
+        "type": competition.type,
+        "difficulty": competition.difficulty,
+        "time": competition.time,
+        "constraints": competition.constraints
+    }), 200
 
 
 if __name__ == '__main__':
