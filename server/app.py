@@ -2,16 +2,19 @@ from flask import Flask, request, jsonify
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user
 from db import db
+<<<<<<< HEAD
 from models import User
 from flask_cors import CORS
+=======
+from models import *
+from config import Config
+>>>>>>> Devan
 
 app = Flask(__name__)
 CORS(app)
 app.config.from_object('config.Config')
 
 db.init_app(app)  # Initialize db with the app
-# with app.app_context():
-#     db.create_all(bind=['competitions'])
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
@@ -77,6 +80,39 @@ def register():
     db.session.commit()
 
     return jsonify({"message": "User registered successfully", "user": new_user.email}), 201  # Created
+
+
+@app.route('/api/competitions', methods=['GET'])
+# Fetch all competitions
+def get_competitions():
+    competitions = Competition.query.all()
+    competitions_list = []
+    for comp in competitions:
+        competitions_list.append({
+            "id": comp.id,
+            "title": comp.title,
+            "description": comp.description,
+            "type": comp.type,
+            "difficulty": comp.difficulty,
+            "time": comp.time,
+            "constraints": comp.constraints
+        })
+    return jsonify(competitions_list), 200
+
+
+@app.route('/api/competitions/<int:id>', methods=['GET'])
+# Fetch a single competition by ID
+def get_competition(id):
+    competition = Competition.query.get_or_404(id)
+    return jsonify({
+        "id": competition.id,
+        "title": competition.title,
+        "description": competition.description,
+        "type": competition.type,
+        "difficulty": competition.difficulty,
+        "time": competition.time,
+        "constraints": competition.constraints
+    }), 200
 
 
 if __name__ == '__main__':

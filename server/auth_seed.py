@@ -10,4 +10,4 @@ with app.app_context():
     user = User(full_name='Test User', email='test@example.com', password=hashed_password)
     db.session.add(user)
     db.session.commit()
-    print("done")
+    print("Auth Seeded.")
