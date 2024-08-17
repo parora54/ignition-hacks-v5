@@ -1,12 +1,15 @@
 /* Basic test css for the navbar */
-.navbar {
+#navbar {
     display: flex;
     justify-content: center;
     background-color: #333; /* Dark background color for the navbar */
     padding: 10px 0; /* Vertical padding */
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
   }
   
-  .navbar .nav-link {
+  #navbar .nav-link {
     color: #fff; /* White text color */
     text-decoration: none; /* Remove underline from links */
     margin: 0 15px; /* Space between links */
@@ -20,7 +23,7 @@
     background-color: #2b2b2b;
   }
   
-  .navbar .nav-link:hover {
+  #navbar .nav-link:hover {
     background-color: #575757; /* Slightly lighter background on hover */
     color: #ffeb3b; /* Yellow color for text on hover */
   }

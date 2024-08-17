@@ -10,7 +10,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar">
+    <nav id="navbar">
       <a href="/" className="nav-link">
         Home
       </a>
