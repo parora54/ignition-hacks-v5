@@ -48,7 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/achievements",
-    element: <Achievements />,
+    element: <PrivateRoute element={<Achievements />} />,
     errorElement: <ErrorPage />,
   },
   {

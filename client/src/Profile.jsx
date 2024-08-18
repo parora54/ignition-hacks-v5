@@ -13,10 +13,7 @@ export default function Profile() {
       </div>
       <div className={styles.profileDetails}>
         <div className={styles.profileDetail}>
-          <strong>Email:</strong> {user.email}
-        </div>
-        <div className={styles.profileDetail}>
-          <strong>Full Name:</strong> {user.name}
+          <strong>Your Registered Email:</strong> {user.email}
         </div>
       </div>
     </div>
