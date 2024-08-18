@@ -8,10 +8,11 @@ export default function Feed() {
   const [search, setSearch] = useState("");
   const [difficulty, setDifficulty] = useState(new Set());
   const [compType, setCompType] = useState(new Set());
+  const [sortOrder, setSortOrder] = useState(""); // State for sorting order
 
   useEffect(() => {
     compsList();
-  }, [difficulty, compType]);
+  }, [difficulty, compType, sortOrder]); // Add sortOrder to the dependency array
 
   const compsList = async () => {
     try {
@@ -33,8 +34,23 @@ export default function Feed() {
 
       if (response.ok) {
         console.log("Comps data from API:", data);
-        setComps(data);
-        setOriginalComps(data);
+        let sortedData = data;
+
+        if (sortOrder) {
+          sortedData = data.sort((a, b) => {
+            const dateA = new Date(a.time);
+            const dateB = new Date(b.time);
+
+            if (sortOrder === "asc") {
+              return dateA - dateB;
+            } else {
+              return dateB - dateA;
+            }
+          });
+        }
+
+        setComps(sortedData);
+        setOriginalComps(sortedData);
         return true;
       } else {
         throw new Error(data.message || "Retrieval failed.");
@@ -88,6 +104,10 @@ export default function Feed() {
     });
   };
 
+  const handleSortChange = (event) => {
+    setSortOrder(event.target.value);
+  };
+
   return (
     <div id="feed-body">
       <div className="search-container">
@@ -137,6 +157,12 @@ export default function Feed() {
             Advanced
           </label>
         </div>
+
+        <select className="sort-dropdown" onChange={handleSortChange}>
+          <option value="">Sort by Date</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
 
         <div className="results-count">
           <p>{comps.length} results found</p>

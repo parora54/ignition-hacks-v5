@@ -34,7 +34,7 @@ export default function Comp({ data }) {
           <ul className="info-list">
             <li>Type: {data.type}</li>
             <li>Difficulty: {data.difficulty}</li>
-            <li>Date: {data.date}</li>
+            <li>Date: {data.time}</li>
             <li>Theme: {data.theme}</li>
           </ul>
         </div>
