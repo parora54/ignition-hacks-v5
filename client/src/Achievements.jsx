@@ -7,11 +7,11 @@ export default function Achievements() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.profile}>
-        <h1>Hi, {user.name}</h1>
+        <h1>{user.name}</h1>
         <img src="/assets/pic.jpg" alt="Profile Picture" />
       </div>
 
-      <h2>Your Achievements</h2>
+      <h2>Progress to Achievements:</h2>
       <ul className={styles.achievementList}>
         <li>
           <h3>Intro to CSS, HTML</h3>
