@@ -2,21 +2,25 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: url(../../public/assets/2.jpg);
 }
 
 .searchContainer {
-    padding: 20px;
+    padding: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #36744a;
+    box-shadow: 0 2px 5px rgba(0, 0, 4, 10);
     flex-wrap: wrap;
     gap: 15px;
     max-width: 1200px;
     margin: 0 auto;
     transition: all 0.3s ease;
+}
+h1{
+    color: #fff;
+    text-shadow:  8px 0 10px #3a3a3a;
 }
 
 .searchBar {

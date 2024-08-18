@@ -12,34 +12,36 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navLinks}>
-        <a href="/" id="home" className={styles.navLink}>
+        <a href="/" className={styles.navHome}>
           Home
         </a>
         {user && (
-          <a href="/profile" id="profile" className={styles.navLink}>
+          <a href="/profile" className={styles.navLink}>
             Profile
           </a>
         )}
-        {!user && (
-          <a href="/login" id="login" className={styles.navLink}>
-            Login / Register
-          </a>
-        )}
-        <a href="/feed" id="feed" className={styles.navLink}>
+        <a href="/feed" className={styles.navFeed}>
           Feed
         </a>
-        <a href="/drills" id="drills" className={styles.navLink}>
+        <a href="/drills" className={styles.navDrills}>
           Drills
         </a>
-        <a href="/achievements" id="achievements" className={styles.navLink}>
+        <a href="/achievements" className={styles.navAchievements}>
           Achievements
         </a>
       </div>
-      {user && (
-        <button onClick={handleLogout} className={styles.authButton}>
-          Log Out
-        </button>
-      )}
+
+      <div>
+        {!user ? (
+          <a href="/login" className={styles.navLogin}>
+            Login / Register
+          </a>
+        ) : (
+          <button onClick={handleLogout} className={styles.authButton}>
+            Log Out
+          </button>
+        )}
+      </div>
     </nav>
   );
 }

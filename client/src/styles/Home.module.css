@@ -10,7 +10,7 @@ html, body {
     min-height: 100vh; /* Ensure the container covers the full viewport height */
     padding: 20px;
     text-align: center;
-    background: url(../../public/assets/2.jpg); /* Background color for the whole page */
+    background: url(/assets/2.jpg); /* Background color for the whole page */
     box-sizing: border-box; /* Include padding and border in element’s total width and height */
 }
 

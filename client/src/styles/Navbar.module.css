@@ -1,45 +1,81 @@
 .navbar {
-    background-color: #2c2c2c; /* Darker navy blue */
-    padding: 15px 30px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navLinks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-  }
-  
-  .navLink {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 20px; /* Spread out the links a bit */
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-  
-  .navLink:hover {
-    color: #ffdd57;
-  }
-  
-  .authButton {
-    background-color: #ff4136;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .authButton:hover {
-    background-color: #ff6347;
-  }
-  
+  background-color: #0d5426;
+  padding: 15px 30px;
+  position: fixed;
+  box-shadow: 5px 10px 30px;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center; /* Center the links */
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px; /* Spread out the links a bit */
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #ffdd57;
+  animation: floating 0.5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translate(0, 0px); }
+  50% { transform: translate(0, 5px); }
+  100% { transform: translate(0, 0px); }
+}
+
+.authButton {
+  background-color: #ff4136;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  margin-left: auto; /* Pushes the button to the right */
+  margin-right: 30px; /* Adjust as needed */
+}
+
+.authButton:hover {
+  background-color: #ff6347;
+}
+
+.navHome, .navFeed, .navDrills, .navAchievements {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px; /* Spread out the links a bit */
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navHome:hover, .navFeed:hover, .navDrills:hover, .navAchievements:hover {
+  color: #ffdd57;
+  animation: floating 0.5s ease-in-out infinite;
+}
+
+.navLogin {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px; /* Spread out the link a bit */
+  font-size: 18px;
+  transition: color 0.3s ease;
+  margin-right: 30px; /* Adjust as needed */
+}
+
+.navLogin:hover {
+  color: #ffdd57;
+  animation: floating 0.5s ease-in-out infinite;
+}
