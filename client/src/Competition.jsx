@@ -67,6 +67,15 @@ export default function Competition() {
           {isFavourite ? "Added to Favourites" : "Add to Favourites"}
         </button>
       </div>
+      {comp.photo_url && (
+        <div className={styles.imageContainer}>
+          <img
+            src={comp.photo_url}
+            alt={`${comp.title} banner`}
+            className={styles.competitionImage}
+          />
+        </div>
+      )}
       <div className={styles.competitionInfo}>
         <p>
           <strong>Description:</strong> {comp.description}
