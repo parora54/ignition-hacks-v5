@@ -10,7 +10,7 @@ html, body {
     min-height: 100vh; /* Ensure the container covers the full viewport height */
     padding: 20px;
     text-align: center;
-    background-color: #f4f4f4; /* Background color for the whole page */
+    background: url(../../public/assets/2.jpg); /* Background color for the whole page */
     box-sizing: border-box; /* Include padding and border in element’s total width and height */
 }
 
@@ -18,14 +18,15 @@ html, body {
     font-size: 8em; /* Make the main title very big */
     margin-bottom: 40px;
     margin-top: 40px;
-    color: #3a3a3a;
+    color: #ffffff;
+    text-shadow: 10px 0 10px #3a3a3a;
     line-height: 1.2; /* Adjust line height for better readability */
 }
 
 .subheading {
     font-size: 1.8em; /* Slightly larger subheading */
     margin-bottom: 80px; /* More space below the subheading */
-    color: #3a3a3a;
+    color: #1e1111;
 }
 
 .featureSection {
@@ -44,12 +45,16 @@ html, body {
     max-width: 800px; /* Maximum width for larger screens */
     text-align: left;
 }
+.feature:hover{
+    background-color: #c7dbc9;
+}
 
 .feature h2 {
-    color: #e67e22;
+    color: #449342;
     margin-bottom: 15px; /* Increase margin for more spacing */
 }
 
 .feature p {
     color: #7f8c8d;
+    align-items: center;
 }
