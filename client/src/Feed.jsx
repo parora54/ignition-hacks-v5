@@ -26,7 +26,7 @@ export default function Feed() {
         query.append("type", compType);
       }
 
-      const url = `http://127.0.0.1:5000/api/competitions?${query.toString()}`;
+      const url = `https://aspire-web-app.onrender.com/api/competitions?${query.toString()}`;
       console.log("Fetching data from:", url);
 
       const response = await fetch(url, {

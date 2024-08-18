@@ -16,7 +16,7 @@ export default function Competition() {
   const compFetch = async () => {
     setLoading(true);
     try {
-      const url = `http://127.0.0.1:5000/api/competitions/${id}`;
+      const url = `https://aspire-web-app.onrender.com/api/competitions/${id}`;
       console.log("Fetching data from:", url);
 
       const response = await fetch(url, {
