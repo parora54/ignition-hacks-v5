@@ -4,7 +4,7 @@ import styles from "./styles/Login.module.css"; // Importing CSS module
 import { useAuth } from "./AuthProvider";
 
 export default function Register() {
-  const [fullName, setFullName] = useState(""); // Updated state variable name
+  const [full_name, setfull_name] = useState(""); // Updated state variable name
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
@@ -34,7 +34,7 @@ export default function Register() {
         throw new Error("Passwords do not match");
       }
 
-      console.log("Registering with:", { fullName, email, password }); // Log data
+      console.log("Registering with:", { full_name, email, password }); // Log data
 
       const response = await fetch(
         "https://aspire-web-app.onrender.com/api/register",
@@ -43,7 +43,7 @@ export default function Register() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ fullName, email, password }),
+          body: JSON.stringify({ full_name, email, password }),
         }
       );
 
@@ -77,8 +77,8 @@ export default function Register() {
               type="text"
               placeholder="Full Name"
               required
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              value={full_name}
+              onChange={(e) => setfull_name(e.target.value)}
             />
             <i className="bx bxs-user"></i>
           </div>
