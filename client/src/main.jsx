@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import Profile from "./Profile.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import Register from "./Register.jsx";
+import Competition from "./Competition.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/feed",
     element: <Feed />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/feed/:id",
+    element: <Competition />,
     errorElement: <ErrorPage />,
   },
   {
