@@ -7,6 +7,7 @@ export default function Competition() {
   const [comp, setComp] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isFavourite, setIsFavourite] = useState(false);
 
   useEffect(() => {
     compFetch();
@@ -43,6 +44,11 @@ export default function Competition() {
     }
   };
 
+  const handleFavouriteClick = () => {
+    setIsFavourite((prev) => !prev);
+    // Logic to add to user's favourites (wrapped around private route?)
+  };
+
   if (loading) return <div className={styles.loading}>Loading...</div>;
   if (error) return <div className={styles.error}>Error: {error}</div>;
   if (!comp) return <div className={styles.noData}>No data found</div>;
@@ -52,6 +58,14 @@ export default function Competition() {
       <div className={styles.competitionHeader}>
         <h1 className={styles.competitionTitle}>{comp.title}</h1>
         <p className={styles.competitionTime}>{comp.time}</p>
+        <button
+          className={`${styles.favouriteButton} ${
+            isFavourite ? styles.favourited : ""
+          }`}
+          onClick={handleFavouriteClick}
+        >
+          {isFavourite ? "Added to Favourites" : "Add to Favourites"}
+        </button>
       </div>
       <div className={styles.competitionInfo}>
         <p>

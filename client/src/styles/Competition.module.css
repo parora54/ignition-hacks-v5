@@ -62,3 +62,29 @@
   font-size: 1.5rem;
   color: #6c757d;
 }
+
+.favouriteButton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.favouriteButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.favourited {
+  background-color: #474b49;
+}
+
+.favourited:hover {
+  background-color: #313331;
+}
