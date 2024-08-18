@@ -7,7 +7,7 @@ export default function Feed() {
   const [originalComps, setOriginalComps] = useState([]);
   const [search, setSearch] = useState("");
   const [difficulty, setDifficulty] = useState(new Set());
-  const [compType, setCompType] = useState(new Set());
+  const [compType, setCompType] = useState("both"); // Default to "both"
   const [sortOrder, setSortOrder] = useState(""); // State for sorting order
 
   useEffect(() => {
@@ -18,7 +18,13 @@ export default function Feed() {
     try {
       const query = new URLSearchParams();
       difficulty.forEach((d) => query.append("difficulty", d));
-      compType.forEach((t) => query.append("type", t));
+
+      if (compType === "both") {
+        query.append("type", "Case Competition");
+        query.append("type", "Hackathon");
+      } else if (compType !== "both") {
+        query.append("type", compType);
+      }
 
       const url = `http://127.0.0.1:5000/api/competitions?${query.toString()}`;
       console.log("Fetching data from:", url);
@@ -90,18 +96,7 @@ export default function Feed() {
   };
 
   const handleTypeChange = (event) => {
-    const value = event.target.value;
-    setCompType((prev) => {
-      const updated = new Set(prev);
-      if (value === "both") {
-        updated.add("Case Competition");
-        updated.add("Hackathon");
-      } else {
-        updated.clear();
-        updated.add(value);
-      }
-      return updated;
-    });
+    setCompType(event.target.value);
   };
 
   const handleSortChange = (event) => {
@@ -121,7 +116,7 @@ export default function Feed() {
         <select
           className={styles.filterDropdown}
           onChange={handleTypeChange}
-          value=""
+          value={compType} // Set value to reflect the current filter
         >
           <option value="both">Type: Both</option>
           <option value="Case Competition">Type: Case Competitions</option>

@@ -24,7 +24,7 @@ export default function Comp({ data }) {
             <li className={styles.infoListItem}>
               Difficulty: {data.difficulty}
             </li>
-            <li className={styles.infoListItem}>Date: {data.date}</li>
+            <li className={styles.infoListItem}>Date: {data.time}</li>
             <li className={styles.infoListItem}>Theme: {data.theme}</li>
           </ul>
         </div>
