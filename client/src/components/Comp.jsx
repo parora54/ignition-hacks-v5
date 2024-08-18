@@ -1,17 +1,45 @@
 import PropTypes from "prop-types";
 
 export default function Comp({ data }) {
-  //some fetch logic or pass in props -> returns Object {title, desc, difficulty, date}
-
   //favourite a comp logic (API.POST)
   // use profileId, if given, to post a favourite to db
 
   return (
     <>
-      <div>{data.title}</div>
-      <div>{data.description}</div>
-      <div>{data.type}</div>
-      <div>{data.difficulty}</div>
+      <div
+        style={{
+          cursor: "pointer",
+          padding: "10px",
+          backgroundColor: "#f0f0f0",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+          transition: "background-color 0.3s ease",
+        }}
+        onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#e0e0e0")}
+        onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#f0f0f0")}
+        className="card"
+      >
+        <div className="card-content">
+          <img
+            src="https://via.placeholder.com/100"
+            alt="Card Image"
+            className="card-image"
+          />
+          <div className="card-info">
+            <h3 className="card-title">{data.title}</h3>
+            <ul className="info-list">
+              <li>Type: {data.type}</li>
+              <li>Difficulty: {data.difficulty}</li>
+              <li>Date: {data.date}</li>
+              <li>Theme: {data.theme}</li>
+            </ul>
+          </div>
+        </div>
+        <div className="card-hover-info">v Hover for more info v</div>
+        <div className="more-info">
+          <p>{data.description}</p>
+        </div>
+      </div>
     </>
   );
 }

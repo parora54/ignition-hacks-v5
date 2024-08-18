@@ -1,0 +1,135 @@
+#feed-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.search-container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1200px; 
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.search-bar {
+    padding: 10px;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.filter-dropdown, .date-picker {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.filter-dropdown:hover, .search-bar:hover, .search-button:hover {
+    border-color: #007BFF;
+}
+
+.filter-checkboxes label {
+    margin-right: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-checkboxes input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.results-count {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 50px;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.card-image {
+    width: 130px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card-info {
+    flex: 1;
+}
+
+.card-title {
+    margin: 0 0 10px;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.info-list li {
+    margin-bottom: 5px;
+}
+
+.card-hover-info, .more-info {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.card:hover .more-info {
+    display: block;
+}
+
+.card:hover .card-hover-info {
+    di

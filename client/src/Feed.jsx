@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
 import Comp from "./components/Comp";
+import "./Feed.css";
 
 export default function Feed() {
   const [comps, setComps] = useState([]);
   const [originalComps, setOriginalComps] = useState([]);
-  const [sortOrder, setSortOrder] = useState("recent");
   const [search, setSearch] = useState("");
   const [difficulty, setDifficulty] = useState(new Set());
   const [compType, setCompType] = useState(new Set());
 
   useEffect(() => {
-    // Fetch the comps data when the component mounts or filters change
     compsList();
   }, [difficulty, compType]);
 
-  // Fetch logic for retrieving Comps (API.GET [ALL])
   const compsList = async () => {
     try {
       const query = new URLSearchParams();
@@ -36,7 +34,7 @@ export default function Feed() {
       if (response.ok) {
         console.log("Comps data from API:", data);
         setComps(data);
-        setOriginalComps(data); // Store the original data
+        setOriginalComps(data);
         return true;
       } else {
         throw new Error(data.message || "Retrieval failed.");
@@ -62,21 +60,6 @@ export default function Feed() {
     }
   };
 
-  // Sort function
-  const handleSort = (order) => {
-    const sortedComps = [...comps].sort((a, b) => {
-      if (order === "recent") {
-        return new Date(b.time) - new Date(a.time);
-      } else if (order === "name") {
-        return a.title.localeCompare(b.title);
-      }
-      return 0;
-    });
-    setComps(sortedComps);
-    setSortOrder(order);
-  };
-
-  // Handle difficulty filter
   const handleDifficultyChange = (event) => {
     const value = event.target.value;
     setDifficulty((prev) => {
@@ -90,14 +73,15 @@ export default function Feed() {
     });
   };
 
-  // Handle competition type filter
   const handleTypeChange = (event) => {
     const value = event.target.value;
     setCompType((prev) => {
       const updated = new Set(prev);
-      if (updated.has(value)) {
-        updated.delete(value);
+      if (value === "both") {
+        updated.add("Case Competition");
+        updated.add("Hackathon");
       } else {
+        updated.clear();
         updated.add(value);
       }
       return updated;
@@ -105,77 +89,63 @@ export default function Feed() {
   };
 
   return (
-    <div>
-      <h1>This is the Feed Page</h1>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={search}
-        onChange={handleSearch}
-      />
+    <div id="feed-body">
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="search-bar"
+          value={search}
+          onChange={handleSearch}
+        />
+        <select
+          className="filter-dropdown"
+          onChange={handleTypeChange}
+          value=""
+        >
+          <option value="both">Type: Both</option>
+          <option value="Case Competition">Type: Case Competitions</option>
+          <option value="Hackathon">Type: Hackathons</option>
+        </select>
 
-      <div>
-        <h2>Filter by Difficulty</h2>
-        <label>
-          <input
-            type="checkbox"
-            value="Beginner"
-            checked={difficulty.has("Beginner")}
-            onChange={handleDifficultyChange}
-          />
-          Beginner
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            value="Intermediate"
-            checked={difficulty.has("Intermediate")}
-            onChange={handleDifficultyChange}
-          />
-          Intermediate
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            value="Advanced"
-            checked={difficulty.has("Advanced")}
-            onChange={handleDifficultyChange}
-          />
-          Advanced
-        </label>
+        <div className="filter-checkboxes">
+          <label>
+            <input
+              type="checkbox"
+              value="Beginner"
+              onChange={handleDifficultyChange}
+              checked={difficulty.has("Beginner")}
+            />
+            Beginner
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="Intermediate"
+              onChange={handleDifficultyChange}
+              checked={difficulty.has("Intermediate")}
+            />
+            Intermediate
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="Advanced"
+              onChange={handleDifficultyChange}
+              checked={difficulty.has("Advanced")}
+            />
+            Advanced
+          </label>
+        </div>
+
+        <div className="results-count">
+          <p>{comps.length} results found</p>
+        </div>
       </div>
 
-      <div>
-        <h2>Filter by Competition Type</h2>
-        <label>
-          <input
-            type="checkbox"
-            value="Hackathon"
-            checked={compType.has("Hackathon")}
-            onChange={handleTypeChange}
-          />
-          Hackathon
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            value="Case Competition"
-            checked={compType.has("Case Competition")}
-            onChange={handleTypeChange}
-          />
-          Case Competition
-        </label>
-      </div>
-
-      <button onClick={() => handleSort("name")}>Sort Alphabetically</button>
-
-      <div>
-        {comps.map((comp, index) => (
-          <>
-            <br />
-            <Comp key={index} data={comp} />
-            <br />
-          </>
+      <div className="card-grid">
+        {comps.map((comp) => (
+          <Comp key={comp.id} data={comp} />
         ))}
       </div>
     </div>
