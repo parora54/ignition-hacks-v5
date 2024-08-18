@@ -98,7 +98,8 @@ def get_competitions():
             "difficulty": comp.difficulty,
             "time": comp.time,
             "education": comp.education,
-            "theme": comp.theme
+            "theme": comp.theme,
+            "photo_url": comp.photo_url
         } for comp in competitions
     ]
 
@@ -119,7 +120,8 @@ def get_competition(id):
         "difficulty": competition.difficulty,
         "time": competition.time,
         "education": competition.education,
-        "theme": competition.theme
+        "theme": competition.theme,
+        "photo_url": competition.photo_url
     }), 200
 
 

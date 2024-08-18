@@ -20,6 +20,7 @@ class Competition(db.Model):
     time = db.Column(db.String(10), nullable=False)  # Time
     education = db.Column(db.String(200), nullable=False)  # Comp education level
     theme = db.Column(db.String(300), nullable=True)  # Comp education level
+    photo_url = db.Column(db.String(500), nullable=True)
 
     def __repr__(self):
         return f"<Competition {self.title} ({self.type})>"
