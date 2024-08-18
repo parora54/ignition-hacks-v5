@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 
-/* Avoid global selectors like * and body */
-
 .wrapper {
     width: 500px;
     margin: 60px auto;
     color: #2c2c2c;
     padding: 20px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.26);
+    background-color: #5e8060;
 }
 
 .profile {

@@ -1,33 +1,32 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: url(../../public/assets/2.jpg);
 }
 
-.intro-section {
+.introSection {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 0 20px;
 }
 
-.intro-subtitle {
+.introSubtitle {
     font-size: 48px;
-    font-family: 'BubblyFont', Arial, sans-serif;
     margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 4px 1px 1px  #3a3a3a;
 }
 
-.intro-paragraph {
+.introParagraph {
     font-size: 24px;
-    font-family: 'Arial', sans-serif;
-    color: #555;
+    color: #171414;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.card-container {
+.cardContainer {
     display: flex;
     justify-content: center;
     margin-top: 100px;
@@ -59,15 +58,15 @@ body {
     transform: scale(1.3); 
 }
 
-.card-image {
-    width: 300px;
-    height: 300px;
+.cardImage {
+    width: 400px;
+    height: 500px;
     object-fit: cover;
     object-position: center;
     margin-bottom: 20px;
 }
 
-.card-subtitle {
+.cardSubtitle {
     text-align: center;
     font-size: 40px;
     font-family: 'BubblyFont';
