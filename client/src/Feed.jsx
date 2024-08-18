@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Comp from "./components/Comp";
-import "./styles/Feed.css";
+import styles from "./styles/Feed.module.css"; // Importing CSS module
 
 export default function Feed() {
   const [comps, setComps] = useState([]);
@@ -89,17 +89,17 @@ export default function Feed() {
   };
 
   return (
-    <div id="feed-body">
-      <div className="search-container">
+    <div className={styles.feedBody}>
+      <div className={styles.searchContainer}>
         <input
           type="text"
           placeholder="Search..."
-          className="search-bar"
+          className={styles.searchBar}
           value={search}
           onChange={handleSearch}
         />
         <select
-          className="filter-dropdown"
+          className={styles.filterDropdown}
           onChange={handleTypeChange}
           value=""
         >
@@ -108,7 +108,7 @@ export default function Feed() {
           <option value="Hackathon">Type: Hackathons</option>
         </select>
 
-        <div className="filter-checkboxes">
+        <div className={styles.filterCheckboxes}>
           <label>
             <input
               type="checkbox"
@@ -138,12 +138,12 @@ export default function Feed() {
           </label>
         </div>
 
-        <div className="results-count">
+        <div className={styles.resultsCount}>
           <p>{comps.length} results found</p>
         </div>
       </div>
 
-      <div className="card-grid">
+      <div className={styles.cardGrid}>
         {comps.map((comp) => (
           <Comp key={comp.id} data={comp} />
         ))}

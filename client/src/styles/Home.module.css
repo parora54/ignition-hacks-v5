@@ -1,0 +1,55 @@
+/* Ensure the body and html cover the full height of the viewport */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Home container styling */
+.homeContainer {
+    min-height: 100vh; /* Ensure the container covers the full viewport height */
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4; /* Background color for the whole page */
+    box-sizing: border-box; /* Include padding and border in element’s total width and height */
+}
+
+.welcomeText {
+    font-size: 8em; /* Make the main title very big */
+    margin-bottom: 40px;
+    margin-top: 40px;
+    color: #2c3e50;
+    line-height: 1.2; /* Adjust line height for better readability */
+}
+
+.subheading {
+    font-size: 1.8em; /* Slightly larger subheading */
+    margin-bottom: 80px; /* More space below the subheading */
+    color: #34495e;
+}
+
+.featureSection {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    gap: 30px; /* Space between sections */
+    align-items: center; /* Center align the sections */
+}
+
+.feature {
+    background-color: #ffffff;
+    padding: 30px; /* Increase padding for more emphasis */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Adjust width for better responsiveness */
+    max-width: 800px; /* Maximum width for larger screens */
+    text-align: left;
+}
+
+.feature h2 {
+    color: #e67e22;
+    margin-bottom: 15px; /* Increase margin for more spacing */
+}
+
+.feature p {
+    color: #7f8c8d;
+}

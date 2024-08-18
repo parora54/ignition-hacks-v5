@@ -1,0 +1,129 @@
+/* Login.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
+}
+
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    min-height: 100vh; /* Ensure it covers the viewport height */
+    background: url(../assets/b5.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 420px; /* Ensure max width for better responsiveness */
+    background: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
+    border: 5px inset rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 2.5em; /* Larger font size for the title */
+    margin-bottom: 20px;
+}
+
+.inputBox {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0; /* Adjusted margin for consistent spacing */
+}
+
+.inputBox input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 3px solid #9eac87;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 15px 45px 15px 15px;
+}
+
+.inputBox input::placeholder {
+    color: #fff;
+}
+
+.inputBox i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+.rememberForgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin: 15px 0;
+}
+
+.rememberForgot label input {
+    accent-color: #fff;
+    margin-right: 5px;
+}
+
+.rememberForgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.rememberForgot a:hover {
+    text-decoration: underline;
+}
+
+.butt {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 1em;
+    color: #333;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.butt:hover {
+    background-color: #618e65;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+.registerLink {
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+.registerLink a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registerLink a:hover {
+    text-decoration: underline;
+}

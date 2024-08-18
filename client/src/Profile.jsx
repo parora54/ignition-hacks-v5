@@ -1,21 +1,21 @@
 import { useAuth } from "./AuthProvider";
-import "./styles/Profile.css"; // Ensure you have this CSS file for styling
+import styles from "./styles/Profile.module.css";
 
 export default function Profile() {
   const { user } = useAuth();
 
   return (
-    <div className="profile-container">
-      <div className="profile-header">
+    <div className={styles.profileContainer}>
+      <div className={styles.profileHeader}>
         <h1>
-          Welcome, <span className="profile-name">{user.name}</span>!
+          Welcome, <span className={styles.profileName}>{user.name}</span>!
         </h1>
       </div>
-      <div className="profile-details">
-        <div className="profile-detail">
+      <div className={styles.profileDetails}>
+        <div className={styles.profileDetail}>
           <strong>Email:</strong> {user.email}
         </div>
-        <div className="profile-detail">
+        <div className={styles.profileDetail}>
           <strong>Full Name:</strong> {user.name}
         </div>
       </div>

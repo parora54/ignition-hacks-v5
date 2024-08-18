@@ -1,0 +1,97 @@
+/* Comp.module.css */
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .cardContent {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .cardImage {
+    width: 130px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .cardInfo {
+    flex: 1;
+  }
+  
+  .cardTitle {
+    margin: 0 0 10px;
+    text-align: left;
+    transition: color 0.3s ease;
+  }
+  
+  .infoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .infoListItem {
+    margin-bottom: 5px;
+  }
+  
+  .cardHoverInfo {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .moreInfo {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover .cardHoverInfo,
+  .card:hover .moreInfo {
+    display: block;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card:hover .cardImage {
+    transform: scale(1.05);
+  }
+  
+  .card:hover .cardTitle {
+    color: #007BFF;
+  }
+  
