@@ -1,0 +1,26 @@
+/* Achievements.module.css */
+.achievementsContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.achievementItem {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.achievementTitle {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.achievementDate {
+    font-size: 14px;
+    color: #777;
+}

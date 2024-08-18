@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./styles/Competition.css";
+import styles from "./styles/Competition.module.css";  // Correct import
 
 export default function Competition() {
   const { id } = useParams();
@@ -43,32 +43,36 @@ export default function Competition() {
     }
   };
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
-  if (!comp) return <div className="no-data">No data found</div>;
+  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (error) return <div className={styles.error}>Error: {error}</div>;
+  if (!comp) return <div className={styles.noData}>No data found</div>;
 
   return (
-    <div className="competition-details">
-      <div className="competition-header">
-        <h1 className="competition-title">{comp.title}</h1>
-        <p className="competition-time">{comp.time}</p>
-      </div>
-      <div className="competition-info">
-        <p>
-          <strong>Description:</strong> {comp.description}
-        </p>
-        <p>
-          <strong>Type:</strong> {comp.type}
-        </p>
-        <p>
-          <strong>Difficulty:</strong> {comp.difficulty}
-        </p>
-        <p>
-          <strong>Education:</strong> {comp.education}
-        </p>
-        <p>
-          <strong>Theme:</strong> {comp.theme}
-        </p>
+    <div className={styles.parentContainer}>  {/* Updated to use parentContainer */}
+      <div className={styles.competitionContainer}>
+        <div className={styles.competitionHeader}>
+          <h1 className={styles.competitionTitle}>{comp.title}</h1>
+          <p className={styles.competitionTime}>{comp.time}</p>
+        </div>
+        <div className={styles.competitionInfo}>
+          <p>
+            <strong>Description:</strong> {comp.description}
+          </p>
+          <div className={styles.competitionDetails}>
+            <div className={styles.detailItem}>
+              <strong>Type:</strong> <span>{comp.type}</span>
+            </div>
+            <div className={styles.detailItem}>
+              <strong>Difficulty:</strong> <span>{comp.difficulty}</span>
+            </div>
+            <div className={styles.detailItem}>
+              <strong>Education:</strong> <span>{comp.education}</span>
+            </div>
+            <div className={styles.detailItem}>
+              <strong>Theme:</strong> <span>{comp.theme}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

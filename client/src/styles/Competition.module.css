@@ -1,0 +1,102 @@
+.parentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px; /* Optional: Adds some padding */
+    background-color: #f4f4f4; /* Adjust as needed */
+}
+
+.competitionContainer {
+    max-width: 900px;
+    width: 100%; /* Ensure the container takes up the full width within its max-width */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.competitionContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.competitionHeader {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+}
+
+.competitionTitle {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin: 0;
+}
+
+.competitionTime {
+    font-size: 1.2rem;
+    color: #2980b9;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.competitionInfo {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.competitionInfo p {
+    margin-bottom: 15px;
+}
+
+.competitionInfo strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.competitionDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.competitionDetails .detailItem {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.competitionDetails .detailItem strong {
+    margin-right: 10px;
+    color: #2980b9;
+}
+
+.competitionDetails .detailItem span {
+    color: #34495e;
+}
+
+.loading,
+.error,
+.noData {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.loading {
+    color: #3498db;
+}
+
+.error {
+    color: #e74c3c;
+}
+
+.noData {
+    color: #7f8c8d;
+}

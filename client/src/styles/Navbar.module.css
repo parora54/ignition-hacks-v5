@@ -1,0 +1,52 @@
+/* NavBar.module.css */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #1F1A1B;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures the links and the button are spaced out */
+}
+
+.navbar .nav-links {
+    display: flex;
+    justify-content: space-evenly; /* Distribute links evenly */
+    flex-grow: 1; /* Allow the links to take up remaining space */
+    margin-right: 20px;
+}
+
+.navbar .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.navbar .nav-link:hover {
+    color: #3498db;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar .auth-button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .auth-button:hover {
+    background-color: #1c7ed6;
+    transform: translateY(-2px);
+}
+
+.navbar .auth-button:active {
+    transform: translateY(0);
+}
