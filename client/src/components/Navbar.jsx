@@ -1,4 +1,4 @@
-import "./test.css";
+import "../styles/test.css";
 import { useAuth } from "../AuthProvider";
 
 export default function Navbar() {

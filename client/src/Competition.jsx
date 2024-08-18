@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./Competition.css"; // Ensure to add your custom CSS file
+import "./styles/Competition.css";
 
 export default function Competition() {
   const { id } = useParams();

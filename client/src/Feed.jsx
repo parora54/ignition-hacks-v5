@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Comp from "./components/Comp";
-import "./Feed.css";
+import "./styles/Feed.css";
 
 export default function Feed() {
   const [comps, setComps] = useState([]);

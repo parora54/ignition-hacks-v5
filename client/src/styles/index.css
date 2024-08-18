@@ -13,7 +13,7 @@ body {
     display: flex;
     align-items: center;
     min-height: 85vh;
-    background: url(assets/b5.jpg);
+    background: url(../assets/b5.jpg);
     margin-top: 15vh;
 }
 
