@@ -10,20 +10,7 @@ export default function Comp({ data }) {
   };
 
   return (
-    <div
-      style={{
-        cursor: "pointer",
-        padding: "10px",
-        backgroundColor: "#f0f0f0",
-        border: "1px solid #ccc",
-        borderRadius: "5px",
-        transition: "background-color 0.3s ease",
-      }}
-      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#e0e0e0")}
-      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#f0f0f0")}
-      onClick={clickHandler}
-      className="card"
-    >
+    <div onClick={clickHandler} className={styles.card}>
       <div className={styles.cardContent}>
         <img
           src="https://via.placeholder.com/100"
@@ -51,5 +38,5 @@ export default function Comp({ data }) {
 }
 
 Comp.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object.isRequired,
 };

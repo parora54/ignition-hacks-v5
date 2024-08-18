@@ -1,0 +1,45 @@
+.navbar {
+    background-color: #2c2c2c; /* Darker navy blue */
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .navLink {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 20px; /* Spread out the links a bit */
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: #ffdd57;
+  }
+  
+  .authButton {
+    background-color: #ff4136;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .authButton:hover {
+    background-color: #ff6347;
+  }
+  

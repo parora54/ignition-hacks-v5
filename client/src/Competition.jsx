@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./styles/Competition.css";
+import styles from "./styles/Competition.module.css";
 
 export default function Competition() {
   const { id } = useParams();
@@ -43,17 +43,17 @@ export default function Competition() {
     }
   };
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
-  if (!comp) return <div className="no-data">No data found</div>;
+  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (error) return <div className={styles.error}>Error: {error}</div>;
+  if (!comp) return <div className={styles.noData}>No data found</div>;
 
   return (
-    <div className="competition-details">
-      <div className="competition-header">
-        <h1 className="competition-title">{comp.title}</h1>
-        <p className="competition-time">{comp.time}</p>
+    <div className={styles.competitionDetails}>
+      <div className={styles.competitionHeader}>
+        <h1 className={styles.competitionTitle}>{comp.title}</h1>
+        <p className={styles.competitionTime}>{comp.time}</p>
       </div>
-      <div className="competition-info">
+      <div className={styles.competitionInfo}>
         <p>
           <strong>Description:</strong> {comp.description}
         </p>

@@ -62,7 +62,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <Navbar />
-      <RouterProvider router={router}></RouterProvider>
+      <div style={{ paddingTop: "55px" }}>
+        <RouterProvider router={router}></RouterProvider>
+      </div>
     </AuthProvider>
   </StrictMode>
 );

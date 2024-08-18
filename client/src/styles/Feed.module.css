@@ -1,11 +1,11 @@
-#feed-body {
+.feedBody {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
 
-.search-container {
+.searchContainer {
     padding: 20px;
     display: flex;
     align-items: center;
@@ -14,12 +14,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
     gap: 15px;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     transition: all 0.3s ease;
 }
 
-.search-bar {
+.searchBar {
     padding: 10px;
     width: 400px;
     border: 1px solid #ccc;
@@ -27,41 +27,43 @@
     transition: all 0.3s ease;
 }
 
-.filter-dropdown, .date-picker {
+.filterDropdown,
+.datePicker {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
-.filter-dropdown:hover, .search-bar:hover, .search-button:hover {
+.filterDropdown:hover,
+.searchBar:hover,
+.searchButton:hover {
     border-color: #007BFF;
 }
 
-.filter-checkboxes label {
+.filterCheckboxes label {
     margin-right: 15px;
     font-size: 14px;
     cursor: pointer;
 }
 
-.filter-checkboxes input[type="checkbox"] {
+.filterCheckboxes input[type="checkbox"] {
     margin-right: 5px;
     cursor: pointer;
 }
 
-.results-count {
+.resultsCount {
     font-size: 16px;
     font-weight: bold;
     margin-left: 20px;
 }
 
-.card-grid {
+.cardGrid {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    padding: 50px;
-    justify-content: center;
-    transition: all 0.5s ease;
+    gap: 20px; /* Adjust gap between cards */
+    padding: 20px;
+    justify-content: center; /* Center align cards */
 }
 
 .card {
@@ -71,21 +73,21 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 500px;
+    max-width: 300px; /* Adjust to fit desired layout */
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding-bottom: 20px;
 }
 
-.card-content {
+.cardContent {
     display: flex;
     align-items: center;
     padding: 20px;
     transition: all 0.3s ease;
 }
 
-.card-image {
+.cardImage {
     width: 130px;
     height: auto;
     border-radius: 5px;
@@ -93,28 +95,29 @@
     transition: transform 0.3s ease;
 }
 
-.card-info {
+.cardInfo {
     flex: 1;
 }
 
-.card-title {
+.cardTitle {
     margin: 0 0 10px;
     text-align: left;
     transition: color 0.3s ease;
 }
 
-.info-list {
+.infoList {
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: left;
 }
 
-.info-list li {
+.infoList li {
     margin-bottom: 5px;
 }
 
-.card-hover-info, .more-info {
+.cardHoverInfo,
+.moreInfo {
     display: none;
     padding: 10px;
     background-color: #fff;
@@ -127,11 +130,11 @@
     transition: all 0.3s ease;
 }
 
-.card:hover .more-info {
+.card:hover .moreInfo {
     display: block;
 }
 
-.card:hover .card-hover-info {
+.card:hover .cardHoverInfo {
     display: none;
 }
 
@@ -140,10 +143,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .card-image {
+.card:hover .cardImage {
     transform: scale(1.05);
 }
 
-.card:hover .card-title {
+.card:hover .cardTitle {
     color: #007BFF;
 }
