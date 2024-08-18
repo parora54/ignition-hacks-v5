@@ -8,7 +8,7 @@ export default function Profile() {
     <div className="profile-container">
       <div className="profile-header">
         <h1>
-          Welcome, <span className="profile-name">{user.full_name}</span>!
+          Welcome, <span className="profile-name">{user.name}</span>!
         </h1>
       </div>
       <div className="profile-details">
@@ -16,7 +16,7 @@ export default function Profile() {
           <strong>Email:</strong> {user.email}
         </div>
         <div className="profile-detail">
-          <strong>Full Name:</strong> {user.full_name}
+          <strong>Full Name:</strong> {user.name}
         </div>
       </div>
     </div>
