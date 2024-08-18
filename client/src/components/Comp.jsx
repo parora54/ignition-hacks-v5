@@ -13,7 +13,7 @@ export default function Comp({ data }) {
     <div onClick={clickHandler} className={styles.card}>
       <div className={styles.cardContent}>
         <img
-          src="https://via.placeholder.com/100"
+          src={data.photo_url}
           alt="Card Image"
           className={styles.cardImage}
         />
