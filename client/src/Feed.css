@@ -132,4 +132,18 @@
 }
 
 .card:hover .card-hover-info {
-    di
+    display: none;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.card:hover .card-title {
+    color: #007BFF;
+}
