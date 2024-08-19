@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import './styles/global.css';
 
 import Home from "./Home.jsx";
 import Login from "./Login.jsx";
@@ -14,6 +15,7 @@ import Profile from "./Profile.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import Register from "./Register.jsx";
 import Competition from "./Competition.jsx";
+
 
 const router = createBrowserRouter([
   {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 import styles from "./styles/Login.module.css"; // Importing CSS module
+import ShimmerButton from "./components/magicui/shimmer-button.jsx";
 
 
 export default function Login() {
@@ -60,9 +61,15 @@ export default function Login() {
             </label>
             <a href="#">Forgot Password?</a>
           </div>
-          <button type="submit" disabled={loading} className={styles.butt}>
-            {loading ? "Logging in..." : "Login"}
-          </button>
+              <ShimmerButton
+                type="submit"
+                className={styles.loginButton}
+                shimmerColor="#ffffff"
+                shimmerDuration="3s"
+              >
+                {loading ? "Logging in..." : "Login"}
+              </ShimmerButton>
+
           {error && <p className={styles.error}>{error}</p>}
           <div className={styles.registerLink}>
             <p>
