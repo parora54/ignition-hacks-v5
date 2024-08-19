@@ -10,23 +10,23 @@ html, body {
     min-height: 100vh; /* Ensure the container covers the full viewport height */
     padding: 20px;
     text-align: center;
-    background: url(/assets/2.jpg); /* Background color for the whole page */
     box-sizing: border-box; /* Include padding and border in element’s total width and height */
+    background-color: #1a1a1a; /* Dark gray background */
 }
+
 
 .welcomeText {
     font-size: 8em; /* Make the main title very big */
     margin-bottom: 40px;
     margin-top: 40px;
     color: #ffffff;
-    text-shadow: 10px 0 10px #3a3a3a;
     line-height: 1.2; /* Adjust line height for better readability */
 }
 
 .subheading {
     font-size: 1.8em; /* Slightly larger subheading */
     margin-bottom: 80px; /* More space below the subheading */
-    color: #1e1111;
+    color: #ffffff;
 }
 
 .featureSection {
@@ -45,9 +45,6 @@ html, body {
     max-width: 800px; /* Maximum width for larger screens */
     text-align: left;
 }
-.feature:hover{
-    background-color: #c7dbc9;
-}
 
 .feature h2 {
     color: #449342;
@@ -58,3 +55,15 @@ html, body {
     color: #7f8c8d;
     align-items: center;
 }
+
+/* Gradient text for "Aspire" */
+.aspireText {
+    background: linear-gradient(165deg, #66ccff, #cc66ff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    display: inline-block;
+    text-shadow: none !important;
+}
+
+

@@ -3,7 +3,9 @@ import styles from "./styles/Home.module.css";
 function Home() {
   return (
     <div className={styles.homeContainer}>
-      <h1 className={styles.welcomeText}>Welcome to Aspire</h1>
+        <h1 className={styles.welcomeText}>
+          Welcome to <span className={styles.aspireText}>Aspire</span>
+        </h1>
       <p className={styles.subheading}>
         Your Gateway to a Thriving Career in Business and Technology
       </p>

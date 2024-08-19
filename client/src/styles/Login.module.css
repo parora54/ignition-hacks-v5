@@ -19,8 +19,7 @@ html, body {
     align-items: center;
     justify-content: center; /* Center horizontally */
     min-height: 100vh; /* Ensure it covers the viewport height */
-    background: url(/assets/b5.jpg) no-repeat center center fixed;
-    background-size: cover;
+    background-color: #1a1a1a; /* Dark gray background */
 }
 
 .wrapper {

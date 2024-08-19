@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #0d5426;
+  background-color: #121212;
   padding: 15px 30px;
   position: fixed;
   box-shadow: 5px 10px 30px;
@@ -27,8 +27,10 @@
 }
 
 .navLink:hover {
-  color: #ffdd57;
-  animation: floating 0.5s ease-in-out infinite;
+  background: linear-gradient(165deg, #66ccff, #cc66ff);
+  -webkit-background-clip: text;
+  color: transparent; /* Fallback in case the above properties aren't supported */
+  /*animation: floating 0.5s ease-in-out infinite; */
 }
 
 @keyframes floating {
@@ -76,6 +78,8 @@
 }
 
 .navLogin:hover {
-  color: #ffdd57;
-  animation: floating 0.5s ease-in-out infinite;
+  background: linear-gradient(165deg, #66ccff, #cc66ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback in case the above properties aren't supported */
 }

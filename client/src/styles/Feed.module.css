@@ -2,7 +2,6 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url(/assets/2.jpg);
 }
 
 .searchContainer {
@@ -20,7 +19,6 @@
 }
 h1{
     color: #fff;
-    text-shadow:  8px 0 10px #3a3a3a;
 }
 
 .searchBar {

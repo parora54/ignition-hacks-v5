@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navLinks}>
-        <a href="/" className={styles.navHome}>
+        <a href="/" className={styles.navLink}>
           Home
         </a>
         {user && (
@@ -20,13 +20,13 @@ export default function Navbar() {
             Profile
           </a>
         )}
-        <a href="/feed" className={styles.navFeed}>
+        <a href="/feed" className={styles.navLink}>
           Feed
         </a>
-        <a href="/drills" className={styles.navDrills}>
+        <a href="/drills" className={styles.navLink}>
           Drills
         </a>
-        <a href="/achievements" className={styles.navAchievements}>
+        <a href="/achievements" className={styles.navLink}>
           Achievements
         </a>
       </div>
